@@ -27,8 +27,10 @@
 To get the project up and running, you'll need to set up your environment and install the necessary dependencies. You can do this in two ways:
 
 ### Option 1: Using the Parent Directory Instructions
-
-Follow the instruction on the [parent directory](https://github.com/Farzad-R/LLM-playground/tree/master) to create an environment and install required libraries. 
+Activate your environment and run:
+```
+pip install -r requirements.txt
+```
 
 ### Option 2: Installing Dependencies Individually
 If you prefer to install the dependencies individually, run the following command:
@@ -38,8 +40,25 @@ pip install streamlit==1.29.0 streamlit-chat==0.1.1 duckduckgo-search==4.1.1 ope
 ```
 
 1. **Configuration and Execution**
-* Navigate to the config directory.
-* Open cfg.py and fill in your GPT API credentials.
+
+- Go to the `configs` folder and update the `app_config.yml` file if needed.
+- In your project folder, create a `.env` file and add your GPT API credentials.
+
+If you're using OpenAI directly:
+```
+OPENAI_API_KEY=
+```
+
+If you're using Azure OpenAI:
+```
+OPENAI_API_TYPE=
+OPENAI_API_VERSION=
+OPENAI_API_KEY=
+OPENAI_API_BASE=
+gpt_deployment_name=
+embed_deployment_name=
+```
+
 2. **Activate Your Environment.**
 3. **Ensure you are in the WebGPT directory**
 4. **Run the Application:**

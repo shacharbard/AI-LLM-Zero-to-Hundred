@@ -1,7 +1,7 @@
 # LLM-Zero-to-Hundred
 
 <div align="center">
-  <img src="logo/AI_RT.png" alt="CAIS" width="300" height="250">
+  <img src="logo/LOGO.jpg" alt="LOGO">
 </div>
 This repository showcases various applications of LLM chatbots and provides comprehensive insights into established methodologies for training and fine-tuning Language Models.
 
@@ -11,10 +11,10 @@ This repository showcases various applications of LLM chatbots and provides comp
 - [x] [WebRAGQuery](#WebRAGQuery)
 - [x] [LLM Full Finetuning](#Fine-tuning-LLMs)
 - [x] [RAG-Master LLamaindex vs Langchain](RAGMaster)
-- [ ] [open-source-RAG](#open-source-RAG): Will be added soon.
-- [ ] [Multimodal ChatBot](#Multimodal-ChatBot): Will be added soon.
-- [ ] [PEFT: Parameter-Efficient Finetuning](coming-soon): Will be added soon.
-- [ ] [LLM Pretraining](coming-soon): Will be added soon.
+- [x] [open-source-RAG-GEMMA](#Open-Source-RAG-GEMMA)
+- [x] [HUMAIN: Advanced Multimodal, Multitask Chatbot](#Multimodal-ChatBot)
+<!-- - [ ] [PEFT: Parameter-Efficient Finetuning](coming-soon): Will be added soon. -->
+<!-- - [ ] [LLM Pretraining](coming-soon): Will be added soon. -->
 
 ### List of tutorials
 - [x] [LLM Function Calling Tutorial](#LLM-function-calling-tutorial)
@@ -38,7 +38,40 @@ NOTE: This is the general structure of the projects, however there might be smal
 
 ## Project description:
 <!-- ====================================== -->
-<!-- WebGPT -->
+<!-- Advanced Multimodal Chatbot -->
+<!-- ====================================== -->
+<a id="HUMAIN: Advanced Multimodal, Multitask Chatbot"></a>
+<h3><a style=" white-space:nowrap; " href="https://github.com/Farzad-R/LLM-Zero-to-Hundred/tree/master/HUMAIN-advanced-multimodal-chatbot"><b>Advanced Multimodal Chatbot:</b></a></h3>
+<p>
+Features:
+
+- ChatGPT-like interaction: Chatbot can act as a normal AI assistant.
+- RAG (Retrieval Augmented Generation) capabilities: The chatbot can perform RAG in 3 different ways 
+  1. With preprocessed documents
+  2. Documents that the user uploads while using the chatbot
+  3. Any webiste that the user requests.
+- Image generation: Chatbot utilizes a stable diffusion model to generate images.
+- Image understanding: Chatbot Understands the content of images and can answer user's question based on the content of the image using the LLava model.
+- DuckDuckGo integration: Access the DuckDuckGo search engine to provide answers based on search results when needed.
+- Summarization: Summarize website content or documents upon user request.
+- Text and voice interaction: Interact with chatbot through both text and voice inputs.
+- Memory: The GPT models in the chatbot also have access to the memory (user's previous queries during the current session).
+
+NOTE: This chatbot was built on top of RAG-GPT and WebRAGQuery projects.
+
+**YouTube video:**: To be added
+
+<!-- ====================================== -->
+<!-- Open-Source-RAG-GEMMA -->
+<!-- ====================================== -->
+<a id="Open-Source-RAG-GEMMA"></a>
+<h3><a style=" white-space:nowrap; " href="https://github.com/Farzad-R/LLM-Zero-to-Hundred/tree/master/Open-Source-RAG-GEMMA"><b>Open-Source-RAG-GEMMA:</b></a></h3>
+<p>
+In this project, I demonstrate how an open source LLM can be deployed on-prem. For that, I took RAG-GPT project and convert it into a fully open source RAG chatbot. The open source chatbot is designed using Google Gemma7B LLm and BAAI/bge-large-en as the embedding model.
+
+**YouTube video:** [Link](https://youtu.be/6dyz2M_UWLw?si=phnTb9GRPx8RXFYp)
+<!-- ====================================== -->
+<!-- RAGMaster -->
 <!-- ====================================== -->
 <a id="RAGMaster"></a>
 <h3><a style=" white-space:nowrap; " href="https://github.com/Farzad-R/LLM-Zero-to-Hundred/tree/master/RAGMaster-LlamaIndex-vs-Langchain"><b>RAGMaster-LlamaIndex-vs-Langchain:</b></a></h3>
@@ -102,18 +135,16 @@ RAG-GPT is a chatbot that enables you to chat with your documents (PDFs and Doc)
 <a id="WebRAGQuery"></a>
 <a style=" white-space:nowrap; " href="https://github.com/Farzad-R/LLM-Zero-to-Hundred/tree/master/WebRAGQuery"><b>WebRAGQuery: (Combining WebGPT and RAG-GPT)</b></a>
 <p>
-WebRAGQuery is a chatbot that goes beyond typical internet searches. Built on the foundations of WebGPT and RAG-GPT, this project empowers users to delve into the depths of both general knowledge and specific URL content.
+WebRAGQuery is a chatbot that is built on the foundations of WebGPT and RAG-GPT, this project gives the users the ability to utilize the LLM's pretrained knowledge, Duckduckgo web search engine, and chatting with websites.
 
 Key Features:</br>
 
-* **Intelligent Decision-Making:** Our model intelligently decides whether to answer user queries based on its internal knowledge base or execute relevant Python functions.
-* **Dynamic Functionality:** Identify and execute the most pertinent Python functions in response to user queries, expanding the scope of what the chatbot can achieve.
-* **Web-Integrated Responses:** The second GPT model seamlessly combines user queries with content retrieved from web searches, providing rich and context-aware responses.
-* **Website-Specific Queries:** When users inquire about a specific website, the model dynamically calls a function to load, vectorize, and create a vectordb from the site's content.
+* **Intelligent Decision-Making:** The GPT model intelligently decides whether to answer user queries based on its internal knowledge base or execute relevant Python functions and access the internet.
+* **Web-Integrated Responses:** The second GPT model seamlessly combines user queries with content retrieved from web searches, providing rich and context-aware responses. WebRAGQuery supports a variety of searches, including text, news, PDFs, images, videos, maps, and instant responses.
+* **Website-Specific Queries:** When users inquire about a specific website, the model dynamically calls a function to load, vectorize, and create a vectordb from the site's content and therefore, gives the user the ability to ask questions about the content of the website. Users can query the content of the vectordb by starting their questions with ** and exit the RAG conversation by omitting ** from the query. ** can trigger the third GPT model for RAG Q&A.
+* **Website summarization:** On demand, this chatbot is able to go through a website and provide the user with a summary of the content.
 * **Memory:** WebRAGQuery boasts a memory feature that allows it to retain information about user interactions. This enables a more coherent and context-aware conversation by keeping track of previous questions and answers.
-* **Vectordb Interactions:** Users can query the content of the vectordb by starting their questions with ** and exit the RAG conversation by omitting ** from the query. ** can trigger the third GPT model for RAG Q&A.
-* **Chainlit Interface:** The user-friendly interface is built using Chainlit, enhancing the overall user experience.
-* **Diverse Search Capabilities:** WebRAGQuery supports a variety of searches, including text, news, PDFs, images, videos, maps, and instant responses.
+* **Chainlit Interface:** The user-friendly interface is built using Chainlit.
 * **Overcoming Knowledge-Cutoff Limitations:** This chatbot transcends knowledge-cutoff limitations, providing answers based on the latest internet content and even allowing users to ask questions about webpage content.
 
 **YouTube video:** [Link](https://www.youtube.com/watch?v=KoWjy5PZdX0&t=266s)
@@ -155,20 +186,16 @@ To run the projects, you will need to install the required libraries. Follow the
 1. Clone the repository and navigate to the project directory.
 ```
 git clone https://github.com/Farzad-R/LLM-Zero-to-Hundred.git
-cd <yourproject>
+cd LLM-Zero-to-Hundred
 ```
 2. Create a new virtual environment using a tool like virtualenv or conda, and activate the environment:
 ```
 conda create --name projectenv python=3.11
 conda activate projectenv
 ```
-3. Install the required libraries using the following commands:
+3. Change directory to your desired project and install the required libraries using the following commands:
+Ex:
 ```
+cd WebRAGQuery
 pip install -r requirements.txt
 ```
-4. Then
-```
-cd <to each directory>
-```
-Follow the instructions provided for that specific project.
-
